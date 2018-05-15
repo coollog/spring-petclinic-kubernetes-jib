@@ -15,15 +15,10 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>spring-petclinic-admin-server</module>
 		<module>spring-petclinic-customers-service</module>
 		<module>spring-petclinic-vets-service</module>
 		<module>spring-petclinic-visits-service</module>
-		<module>spring-petclinic-config-server</module>
-        <module>spring-petclinic-discovery-server</module>
         <module>spring-petclinic-api-gateway</module>
-        <module>spring-petclinic-monitoring</module>
-        <module>spring-petclinic-tracing-server</module>
     </modules>
 
     <properties>
@@ -32,7 +27,7 @@
         <sleuth.version>1.3.1.RELEASE</sleuth.version>
         <java.version>1.8</java.version>
 
-		<docker.image.prefix>mszarlinski</docker.image.prefix>
+		<docker.image.prefix>gcr.io/qingyangc-sandbox</docker.image.prefix>
         <docker.image.exposed.port>9090</docker.image.exposed.port>
         <docker.image.dockerfile.dir>${basedir}</docker.image.dockerfile.dir>
 		<docker.plugin.version>0.4.13</docker.plugin.version>
@@ -146,7 +141,7 @@
                                 </execution>
                             </executions>
                             <configuration>
-                                <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+                                <imageName>${docker.image.prefix}:${project.artifactId}</imageName>
                                 <dockerDirectory>${docker.image.dockerfile.dir}</dockerDirectory>
                                 <resources>
                                     <resource>

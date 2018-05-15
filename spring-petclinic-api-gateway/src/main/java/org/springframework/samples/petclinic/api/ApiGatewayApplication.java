@@ -26,8 +26,6 @@ import org.springframework.web.client.RestTemplate;
 /**
  * @author Maciej Szarlinski
  */
-@EnableZuulProxy
-@EnableDiscoveryClient
 @SpringBootApplication
 public class ApiGatewayApplication {
 
