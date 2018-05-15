@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: frontend
+spec:
+  backend:
+    serviceName: api-gateway
+    servicePort: 80
+  rules:
+  - http:
+      paths:
+      - path: /api/vet
+        backend:
+          serviceName: vets-service
+          servicePort: 80
+      - path: /api/visit
+        backend:
+          serviceName: visits-service
+          servicePort: 80
+      - path: /api/customer
+        backend:
+          serviceName: customers-service
+          servicePort: 80
+      - path: /api/gateway
+        backend:
+          serviceName: api-gateway
+          servicePort: 80

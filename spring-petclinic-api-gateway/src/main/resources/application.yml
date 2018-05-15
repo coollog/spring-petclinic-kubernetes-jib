@@ -1,5 +1,26 @@
+zuul:
+  prefix: /api
+  ignoredServices: '*'
+  routes:
+    vets-service:
+      path: /vet/**
+      url: http://vets-service/
+    visits-service:
+      path: /visit/**
+      url: http://visits-service/
+    customers-service:
+      path: /customer/**
+      url: http://customers-service/
+    api-gateway:
+      path: /gateway/**
+      url: http://api-gateway/
+
 server:
-  port: 8080
+  port: 80
+  compression:
+    enabled: true
+    mime-types: application/json,text/css,application/javascript
+    min-response-size: 2048
 
 petclinic:
   database: hsqldb
@@ -8,5 +29,5 @@ spring:
     active: production
 
 spring.messages.basename: messages/messages
-
+management.security.enabled: false
 logging.level.org.springframework: INFO

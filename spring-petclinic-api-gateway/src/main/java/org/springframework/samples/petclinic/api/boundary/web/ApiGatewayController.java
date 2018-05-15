@@ -22,12 +22,16 @@ import org.springframework.samples.petclinic.api.application.OwnerDetails;
 import org.springframework.samples.petclinic.api.application.VisitDetails;
 import org.springframework.samples.petclinic.api.application.VisitsServiceClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 import static java.util.Collections.emptyList;
 
@@ -48,6 +52,11 @@ public class ApiGatewayController {
         supplyVisits(owner, visitsServiceClient.getVisitsForPets(owner.getPetIds(), ownerId));
         return owner;
     }
+
+    // @RequestMapping(value = "/api/vet")
+    // public RedirectView vetsService() {
+    //
+    // }
 
     private void supplyVisits(final OwnerDetails owner, final Map<Integer, List<VisitDetails>> visitsMapping) {
         owner.getPets().forEach(pet ->

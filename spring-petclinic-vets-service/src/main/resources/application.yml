@@ -3,7 +3,7 @@ vets:
     ttl: 60
     heap-size: 100
 server:
-  port: 8080
+  port: 80
 
 petclinic:
   database: hsqldb

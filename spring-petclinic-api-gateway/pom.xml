@@ -54,6 +54,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Spring Cloud -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zuul</artifactId>
+            <version>LATEST</version>
+        </dependency>
+
         <!-- Third parties -->
         <dependency>
             <groupId>org.jolokia</groupId>
