@@ -1,8 +1,12 @@
-zuul:
-  prefix: /api
-  ignoredServices: '*'
-  routes:
-    vets-service: /vet/**
-    visits-service: /visit/**
-    customers-service: /customer/**
-    api-gateway: /gateway/**
+server:
+  port: 8080
+
+petclinic:
+  database: hsqldb
+spring:
+  profiles:
+    active: production
+
+spring.messages.basename: messages/messages
+
+logging.level.org.springframework: INFO
