@@ -15,9 +15,6 @@
 	</parent>
 
     <properties>
-        <docker.image.exposed.port>8081</docker.image.exposed.port>
-        <docker.image.dockerfile.dir>${basedir}/../docker</docker.image.dockerfile.dir>
-
         <main.class>org.springframework.samples.petclinic.vets.VetsServiceApplication</main.class>
     </properties>
 
@@ -84,26 +81,11 @@
                 <version>${jib.plugin.version}</version>
                 <configuration>
                     <to>
-                        <image>${docker.image.prefix}:${project.artifactId}</image>
+                        <image>${jib.image.repository}:${project.artifactId}</image>
                     </to>
                     <mainClass>${main.class}</mainClass>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
-    <profiles>
-        <profile>
-            <id>buildDocker</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.spotify</groupId>
-                        <artifactId>docker-maven-plugin</artifactId>
-                        <version>${docker.plugin.version}</version>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>
