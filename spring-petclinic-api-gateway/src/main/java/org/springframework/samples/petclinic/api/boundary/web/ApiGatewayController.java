@@ -53,11 +53,6 @@ public class ApiGatewayController {
         return owner;
     }
 
-    // @RequestMapping(value = "/api/vet")
-    // public RedirectView vetsService() {
-    //
-    // }
-
     private void supplyVisits(final OwnerDetails owner, final Map<Integer, List<VisitDetails>> visitsMapping) {
         owner.getPets().forEach(pet ->
             pet.getVisits().addAll(Optional.ofNullable(visitsMapping.get(pet.getId())).orElse(emptyList())));
